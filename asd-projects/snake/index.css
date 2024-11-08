@@ -1,13 +1,18 @@
 
 body {
   background-color: darkgreen;
+  background-image: url("Larva-SnakeGif.gif");
+  height: 300px; /* You must set a specified height */
+  background-position-x: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 #board {
-  width: 440px;
-  height: 440px;
+  width: 1500px;
+  height: 700px;
   border: 1px solid white;
-  background-color: black;
+/* background-color: black; */
 }
 
 #score, #highScore {
@@ -15,7 +20,6 @@ body {
 }
 
 .snake, .apple {
-  display: block;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -23,15 +27,27 @@ body {
 }
 
 .snake {
-  background-color: green;
+  background-color: rgb(27, 199, 173);
   z-index: 2;
 }
 
 #snake-head {
-  background-color: darkgreen;
+  background-color: rgb(7, 181, 147);
+
+  /*
+  background: rgba(76, 175, 80, 0)  /Green background with 30% opacity/ ;
+  width: 20px;
+  height:20px;
+  background-image: url(SnakeHead.png);
+  background-size: cover;
+  position: absolute;
+  */
 }
 
 .apple {
-  background-color: red;
-  z-index: 1;
+  width: 20px;
+  height:20px;
+  background-image: url(Red.png);
+  background-size: cover;
+  position: absolute;
 }

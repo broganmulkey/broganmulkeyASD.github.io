@@ -16,8 +16,8 @@ var apple = {}
 var score = 0
 
 // Constant Variables
-var ROWS = 20;
-var COLUMNS = 20;
+var ROWS = 35;
+var COLUMNS = 73;
 var SQUARE_SIZE = 20;
 var KEY = {
   LEFT: 37,
@@ -102,7 +102,7 @@ function checkForNewDirection(event) {
   }
   // FILL IN THE REST
 
-  //console.log(snake.head.direction);     // uncomment me!
+ 
 }
 
 function moveSnake() {
@@ -240,6 +240,12 @@ function hasCollidedWithSnake() {
 }
 
 function endGame() {
+
+
+  if (hasCollidedWithSnake() === true) {
+    alert("Stop Eating Yourself");
+  }
+
   // stop update function from running
   clearInterval(updateInterval);
 
@@ -247,7 +253,7 @@ function endGame() {
   board.empty();
 
   // update the highScoreElement to display the highScore
-  highScoreElement.text("Freaky Snake High Score: " + calculateHighScore());
+  highScoreElement.text("High Score: " + calculateHighScore());
   scoreElement.text("Score: 0");
   score = 0;
 
