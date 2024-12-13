@@ -197,7 +197,7 @@ function handleAppleCollision() {
   etc...
   */
   var row = 0
-  var column = 0;
+  var column = 0
 console.log(snake.tail.direction)
  if (snake.tail.direction === "left"){
   row = snake.tail.row
