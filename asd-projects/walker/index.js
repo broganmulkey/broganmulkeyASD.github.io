@@ -36,6 +36,8 @@ function runProgram(){
     posY: 0,
     speedX: 0,
     speedY: 0,
+    width: WALKER_WIDTH,
+    height: WALKER_HEIGHT,
   }
 
   var walker2 = {
@@ -43,6 +45,8 @@ function runProgram(){
     posY: BOARD_WIDTH - WALKER_WIDTH,
     speedX: 0,
     speedY: 0,
+    width: WALKER_WIDTH,
+    height: WALKER_HEIGHT,
   }
 
   // one-time setup
@@ -62,6 +66,8 @@ function runProgram(){
     repositionGameItem();
     wallCollision();
     redrawGameItem();
+    collideAction();
+    
   }
   
   /* 
@@ -129,6 +135,45 @@ function runProgram(){
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
   
+  function doCollide(obj1, obj2) {
+    // TODO: calculate and store the remaining
+    // sides of the obj1
+    obj1.leftX = obj1.posX;
+    obj1.topY = obj1.posY;
+    obj1.rightX = obj1.posX + obj1.width; 
+    obj1.bottomY = obj1.posY + obj1.height;
+    
+    // TODO: Do the same for obj2
+    obj2.leftX = obj2.posX;
+    obj2.topY = obj2.posY;
+    obj2.rightX = obj2.posX + obj2.width; 
+    obj2.bottomY = obj2.posY + obj2.height;
+  
+    // TODO: Return true if they are overlapping, false otherwise
+	if(
+    obj2.rightX > obj1.leftX &&
+    obj2.leftX < obj1.rightX &&
+    obj2.bottomY > obj1.topY &&
+    obj2.topY < obj1.bottomY 
+    
+    ){
+      return true;
+    } else {
+      return false;
+    }
+		
+}
+function collideAction(){
+  if(doCollide(walker,walker2)){
+    console.log("tagged");
+    walker.posX = 0;
+    walker.posY = 0;
+    walker2.posX = BOARD_WIDTH - WALKER_WIDTH;
+    walker2. posY = BOARD_HEIGHT - WALKER_HEIGHT;
+    alert("Tag You're It!");
+  }
+}
+
   function repositionGameItem(){
     walker.posX += walker.speedX;
     walker.posY += walker.speedY;
