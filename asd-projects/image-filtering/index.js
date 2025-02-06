@@ -84,7 +84,7 @@ function decreaseBlue(array){
 }
 
 function  increaseGreenByBlue(array){
-  var result = array[BLUE] = array[GREEN];
+  var result = array[GREEN] + array[BLUE];
   array[GREEN] = keepInBounds(result)
 }
 
